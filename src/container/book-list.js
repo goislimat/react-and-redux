@@ -5,10 +5,17 @@ import {bindActionCreators} from 'redux';
 
 class BookList extends Component {
   renderList() {
+    // quando o usuário clica em um livro ele chama a ação passando as informações
+    // do livro que acabou de ser criado
     return(
       this.props.books.map((book) => {
         return (
-          <li key={book.title} className="list-group-item">{book.title}</li>
+          <li
+            onClick={() => this.props.selectBook(book)}
+            key={book.title}
+            className="list-group-item">
+            {book.title}
+          </li>
         );
       })
     );
